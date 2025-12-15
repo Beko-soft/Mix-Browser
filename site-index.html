@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MixBrowser: Hızlı, Hafif, Güvenli (Profesyonel Tema)</title>
+    <style>
+        /* Ana Renk Paleti */
+        :root {
+            --primary-color: #ff69b4; /* Canlı Pembe/Hot Pink */
+            --secondary-color: #c2185b; /* Koyu Pembe/Gül */
+            --bg-light: #fff0f5; /* Lavanta Pembesi Arka Plan */
+            --text-dark: #2c3e50; /* Koyu Mavi/Gri */
+            --text-light: white;
+            --shadow-pink: rgba(255, 105, 180, 0.4);
+        }
+
+        /* Anahtar Kare Animasyonları */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Başlangıçta 3D dönme efekti yerine daha modern bir kayma ve büyütme */
+        @keyframes slideInScale {
+            from { opacity: 0; transform: translateY(80px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Genel Stil */
+        body {
+            font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Başlık Alanı (Header) */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 120px 0 100px;
+            text-align: center;
+            box-shadow: 0 4px 20px var(--shadow-pink);
+        }
+
+        header h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            animation: fadeIn 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.3em;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .download-links a {
+            display: inline-block;
+            margin: 15px 15px;
+            padding: 15px 40px;
+            background-color: var(--text-light);
+            color: var(--secondary-color);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.1em;
+            border: 2px solid var(--secondary-color);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .download-links a:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 20px var(--shadow-pink);
+        }
+
+        /* Simge Stilini Ayarlama (Unicode/Sembol) */
+        .icon-symbol {
+            margin-right: 5px;
+            font-size: 1.2em;
+            vertical-align: middle;
+        }
+
+        /* Özellikler Bölümü */
+        #features {
+            padding: 100px 0;
+            text-align: center;
+            background-color: white;
+        }
+
+        #features h2, #customization h2 {
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            color: var(--secondary-color);
+            border-bottom: 4px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 8px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .feature-boxes {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature-box {
+            background: #ffffff;
+            border: 1px solid #fce4ec;
+            border-radius: 12px;
+            padding: 40px 30px;
+            width: calc(33% - 60px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Yumuşak Geçiş */
+            opacity: 0;
+            transform: translateY(80px) scale(0.95); /* Animasyonlu Başlangıç */
+            min-width: 280px;
+            text-align: left;
+        }
+
+        .feature-box.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            animation: slideInScale 0.8s ease-out;
+        }
+
+        /* Animasyon için gecikmeler */
+        .feature-box:nth-child(1) { animation-delay: 0s; }
+        .feature-box:nth-child(2) { animation-delay: 0.15s; }
+        .feature-box:nth-child(3) { animation-delay: 0.3s; }
+
+        .feature-box:hover {
+            box-shadow: 0 12px 30px var(--shadow-pink);
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary-color);
+        }
+
+        .feature-box h3 {
+            color: var(--secondary-color);
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+
+        /* Kişiselleştirme Bölümü */
+        #customization {
+            padding: 100px 0;
+            background-color: #ffebee;
+            text-align: center;
+        }
+
+        #customization p {
+            font-size: 1.2em;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #4a4a4a;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Alt Alan (Footer) */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>MixBrowser: <strong>Hızlı, Hafif, Güvenli</strong> Tarayıcı</h1>
+            <p style="font-size: 1.3em;">Web'de gezinmenin en hızlı, en güvenli ve en keyifli yolu.</p>
+            <div class="download-links">
+                <a href="https://github.com/Beko-soft/Mix-Browser/releases/download/v6.9-beta/MixBrowser-0.6.9-Windows-Portable.zip" target="_blank">
+                    <span class="icon-symbol">⊞</span> <strong>Windows için İndir</strong>
+                </a>
+                <a href="https://github.com/Beko-soft/Mix-Browser/releases/download/v6.9-beta/MixBrowser-0.6.9.AppImage" target="_blank">
+                    <span class="icon-symbol">🐧</span> <strong>Linux için İndir (AppImage)</strong>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="features">
+        <div class="container">
+            <h2>MixBrowser'ın <strong>Temel Farkları</strong></h2>
+            <div class="feature-boxes">
+                <div class="feature-box">
+                    <h3><span class="icon-symbol">⚡</span> <strong>Hızlı</strong></h3>
+                    <p>En son teknolojilerle geliştirilen MixBrowser, sayfaları anında yükler. Optimize edilmiş kaynak yönetimi sayesinde gecikmelere elveda deyin.</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3><span class="icon-symbol">🕊️</span> <strong>Hafif</strong></h3>
+                    <p>Düşük bellek (RAM) ve işlemci (CPU) tüketimi hedeflenmiştir. Eski veya düşük donanımlı cihazlarda bile tarayıcınız akıcı ve stabil çalışır.</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3><span class="icon-symbol">🛡️</span> <strong>Güvenli</strong></h3>
+                    <p>Gelişmiş izleyici ve reklam engelleme teknolojileri standart olarak gelir. Gizliliğiniz MixBrowser'ın önceliğidir; verileriniz güvende kalır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="customization">
+        <div class="container">
+            <h2>Sınırsız <strong>Kişiselleştirme</strong></h2>
+            <p>MixBrowser, tamamen size ait bir tarayıcı deneyimi sunar. Tarayıcının <strong>temasını, arka planını, renklerini, site izinlerini ve kullanım istatistiklerini</strong> kolayca kişiselleştirin. Kullanımınızı yansıtan benzersiz bir görünüm ve his yaratın.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>MixBrowser - Hız, Güvenlik ve Tarz Bir Arada.</p>
+            <p>Projemizi Destekleyin: <a href="https://github.com/Beko-soft/Mix-Browser" target="_blank"><strong>GitHub Profili</strong></a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const boxes = document.querySelectorAll('.feature-box');
+
+            // Intersection Observer kullanarak kutuların görünürlüğünü izle
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Kutu görünür hale geldiğinde sınıfı ekle
+                        entry.target.classList.add('is-visible');
+                        // Tekrar tetiklenmemesi için izlemeyi bırak
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                // Görünürlüğün %10'u ekrana girdiğinde tetikle
+                threshold: 0.1
+            });
+
+            // Her bir kutuyu gözlemlemeye başla
+            boxes.forEach(box => {
+                observer.observe(box);
+            });
+        });
+    </script>
+
+</body>
+</html>
